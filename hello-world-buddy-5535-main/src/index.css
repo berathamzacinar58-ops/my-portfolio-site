@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 200 30% 98%;
+    --foreground: 210 50% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 50% 10%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 152 60% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 200 20% 94%;
+    --muted-foreground: 210 20% 45%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 20% 88%;
+    --input: 200 20% 88%;
+    --ring: 199 89% 48%;
+
+    --radius: 1rem;
+
+    /* Custom colors */
+    --sea-light: 199 80% 92%;
+    --sea-medium: 199 70% 75%;
+    --forest: 152 60% 35%;
+    --sand: 38 50% 90%;
+    
+    /* Gradients */
+    --gradient-sea: linear-gradient(135deg, hsl(199 89% 48%) 0%, hsl(180 70% 45%) 100%);
+    --gradient-forest: linear-gradient(135deg, hsl(152 60% 45%) 0%, hsl(140 50% 35%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(200 30% 98%) 0%, hsl(199 80% 95%) 100%);
+    
+    /* Shadows */
+    --shadow-card: 0 4px 24px -4px hsl(199 89% 48% / 0.15);
+    --shadow-card-hover: 0 12px 32px -8px hsl(199 89% 48% / 0.25);
+    --shadow-button: 0 4px 16px -4px hsl(199 89% 48% / 0.4);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 50% 8%;
+    --foreground: 200 20% 95%;
+
+    --card: 210 45% 12%;
+    --card-foreground: 200 20% 95%;
+
+    --popover: 210 45% 12%;
+    --popover-foreground: 200 20% 95%;
+
+    --primary: 199 89% 55%;
+    --primary-foreground: 210 50% 8%;
+
+    --secondary: 152 60% 50%;
+    --secondary-foreground: 210 50% 8%;
+
+    --muted: 210 40% 18%;
+    --muted-foreground: 200 15% 60%;
+
+    --accent: 38 92% 55%;
+    --accent-foreground: 210 50% 8%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 40% 20%;
+    --input: 210 40% 20%;
+    --ring: 199 89% 55%;
+
+    --sea-light: 199 50% 20%;
+    --sea-medium: 199 60% 30%;
+    --forest: 152 50% 25%;
+    --sand: 38 30% 20%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-sea {
+    background: var(--gradient-sea);
+  }
+  
+  .gradient-forest {
+    background: var(--gradient-forest);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+  
+  .shadow-button {
+    box-shadow: var(--shadow-button);
+  }
+}
+
+@layer components {
+  .role-card {
+    @apply relative overflow-hidden rounded-2xl p-8 cursor-pointer transition-all duration-500 ease-out;
+    @apply hover:scale-[1.02] hover:-translate-y-1;
+  }
+  
+  .role-card::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(180deg, transparent 0%, hsl(0 0% 100% / 0.1) 100%);
+  }
+  
+  .role-card:hover::before {
+    @apply opacity-100;
+  }
+}
