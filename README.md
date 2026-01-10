@@ -2,8 +2,8 @@
 
 This project was designed and developed by me using modern web technologies.
 
-## Live Demo
-https://hello-world-buddy-5535.lovable.app/
+## Live 
+https://hello-world-buddy-5535.lovable.app
 
 ## Technologies
 - HTML
